@@ -1,0 +1,21 @@
+{
+    "welcome": "स्वागत है",
+    "goodbye": "अलविदा",
+    "signUpForm": "साइन अप फ़ॉर्म",
+    "signInForm": "साइन इन फ़ॉर्म",
+    "name": "नाम",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "profileImage": "प्रोफ़ाइल चित्र",
+    "resetForm": "फ़ॉर्म रीसेट करें",
+    "register": "पंजीकरण करें",
+    "logIn": "लॉग इन करें",
+    "signUp": "साइन अप करें",
+    "newHereQuestion": "क्या आप नए हैं?",
+    "nowLower": "अब",
+    "userDetailsPage": "उपयोगकर्ता विवरण पृष्ठ",
+    "userHomePage": "उपयोगकर्ता होम पृष्ठ",
+    "title": "शीर्षक",
+    "cost": "मूल्य"
+  }
+  

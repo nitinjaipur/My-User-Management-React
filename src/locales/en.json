@@ -1,0 +1,20 @@
+{
+  "welcome": "Welcome",
+  "goodbye": "Goodbye",
+  "signUpForm": "Sign Up Form",
+  "signInForm": "Sign In Form",
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "profileImage": "Profile Image",
+  "resetForm": "Reset Form",
+  "register": "Register",
+  "logIn": "Log In",
+  "signUp": "Sign Up",
+  "newHereQuestion": "New Here?",
+  "nowLower": "now",
+  "userDetailsPage": "User Details Page",
+  "userHomePage": "User Home Page",
+  "title": "Title",
+  "cost": "Cost"
+}
