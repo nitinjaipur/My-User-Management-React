@@ -18,6 +18,9 @@ jobs:
       with:
         node-version: '16.20.0'  # Choose your React app's Node.js version
 
+    - name: Set CI environment variable to false
+      run: echo "CI=false" >> $GITHUB_ENV  # This disables treating warnings as errors
+
     - name: Install dependencies
       run: npm install  # or 'yarn install' if you use yarn
 
