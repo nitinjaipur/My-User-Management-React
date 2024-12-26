@@ -14,22 +14,28 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action) => {
+    setUserReducer: (state, action) => {
       state.id = action.payload.id;
       state.name = action.payload.name;
       state.email = action.payload.email;
+      state.age = action.payload.age;
+      state.gender = action.payload.gender;
+      state.profileImg = action.payload.image_data;
     },
-    logoutUser: (state) => {
+    logoutUserReducer: (state) => {
       state.id = null;
       state.name = '';
       state.email = '';
+      state.age = null;
+      state.gender = '';
+      state.profileImg = '';
     },
   },
 });
 
 export const {
-    setUser,
-    logoutUser,
+    setUserReducer,
+    logoutUserReducer,
 } = userSlice.actions;
 
 export default userSlice.reducer;
