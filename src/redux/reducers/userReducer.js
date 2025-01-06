@@ -15,12 +15,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUserReducer: (state, action) => {
-      state.id = action.payload.id;
-      state.name = action.payload.name;
-      state.email = action.payload.email;
-      state.age = action.payload.age;
-      state.gender = action.payload.gender;
-      state.profileImg = action.payload.image_data;
+      const { id, name, email, age, gender, image_data } = action.payload;
+      state.id = id;
+      state.name = name;
+      state.email = email;
+      state.age = age;
+      state.gender = gender;
+      state.profileImg = image_data;
     },
     logoutUserReducer: (state) => {
       state.id = null;

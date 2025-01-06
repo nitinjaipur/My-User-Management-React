@@ -10,7 +10,7 @@ const USER_ROUTES = [
         component: UserHomePage
     },
     {
-        path: '/details',
+        path: '/user-details',
         component: UserDetailsPage
     },
 ];
