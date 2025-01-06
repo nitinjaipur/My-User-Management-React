@@ -16,5 +16,8 @@
   "userDetailsPage": "User Details Page",
   "userHomePage": "User Home Page",
   "title": "Title",
-  "cost": "Cost"
+  "cost": "Cost",
+  "age": "Age",
+  "gender": "Gender",
+  "logout": "Logout"
 }

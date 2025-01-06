@@ -15,6 +15,6 @@ export const logoutThunk = () => async (dispatch) => {
   if(response?.status != 405) {
     localStorage.setItem('isAuthenticated', 'false');
     dispatch(logoutUserReducer());
-    window.location.reload();
+    window.location.href = '/';
   }
 };
