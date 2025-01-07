@@ -1,4 +1,4 @@
-import { userLogin, userLogout } from '../../api/userApi';
+import { userLogin, userLogout, getUserDetail } from '../../api/userApi';
 import { setUserReducer, logoutUserReducer } from '../reducers/userReducer';
 
 export const loginThunk = (data) => async (dispatch) => {
@@ -16,5 +16,15 @@ export const logoutThunk = () => async (dispatch) => {
     localStorage.setItem('isAuthenticated', 'false');
     dispatch(logoutUserReducer());
     window.location.href = '/';
+  }
+};
+
+export const getUserDetailThunk = ({onSuccess=() => {}, onFail=() => {}}) => async (dispatch) => {
+  const response = await getUserDetail();
+  if(response?.status == 200) {
+    onSuccess();
+  }
+  else {
+    onFail();
   }
 };

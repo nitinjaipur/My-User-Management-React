@@ -20,3 +20,11 @@ export const userLogout = async () => {
         return { status: err?.status, message: err?.response?.data?.message };
     }
 };
+
+export const getUserDetail = async () => {
+    try {
+        return await axiosInstance.get(`/get_user_details/`);
+    } catch (err) {
+        return { status: err?.status, message: err?.response?.data?.message };
+    }
+};
