@@ -38,7 +38,7 @@ const SignIn = () => {
                     <Button title={t('resetForm')} buttonClass={'bg-red-700'} onClickButton={resetState}/>
                     <Button title={t('logIn')} buttonClass={'bg-slate-700'} onClickButton={handleLogin}/>
                 </div>
-                <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
+                <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
                 <LanguageDropdown />
             </div>
         </div>

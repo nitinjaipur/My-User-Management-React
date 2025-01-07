@@ -1,5 +1,14 @@
-import { userLogin, userLogout, getUserDetail } from '../../api/userApi';
+import { userRegister, userLogin, userLogout, getUserDetail } from '../../api/userApi';
 import { setUserReducer, logoutUserReducer } from '../reducers/userReducer';
+
+export const signupThunk = (data) => async (dispatch) => {
+  const response = await userRegister(data);
+  if(response?.status == 201) {
+    localStorage.setItem('isAuthenticated', 'true');
+    dispatch(setUserReducer(response?.data?.data));
+    window.location.href = '/';
+  }
+};
 
 export const loginThunk = (data) => async (dispatch) => {
   const response = await userLogin(data);

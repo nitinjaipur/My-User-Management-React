@@ -19,5 +19,6 @@
   "cost": "Cost",
   "age": "Age",
   "gender": "Gender",
-  "logout": "Logout"
+  "logout": "Logout",
+  "alreadyAcountQuestion": "Already have an account?"
 }
