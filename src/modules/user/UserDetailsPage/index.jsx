@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutThunk } from '../../../redux/middlewares/index';
+import { logoutThunk, deleteUserThunk } from '../../../redux/middlewares/index';
 const Button = lazy(() => import('../../../components/Button'));
 
 const FieldComponent = ({label, value}) => {
@@ -21,6 +21,7 @@ const UserDetailsPage = () => {
     const { profileImg } = user;
 
     const handleLogout = () => dispatch(logoutThunk());
+    const handleDeleteUser = () => dispatch(deleteUserThunk());
 
     return(
         <div className="flex flex-col bg-backgroundGray w-full h-full items-center">
@@ -39,6 +40,7 @@ const UserDetailsPage = () => {
                     ))
                 }
                 <Button title={t('logout')} onClickButton={handleLogout} buttonClass={'bg-red-800 mt-2'}/>
+                <Button title={'Delete User'} onClickButton={handleDeleteUser} buttonClass={'bg-red-800 mt-2'}/>
             </div>
         </div>
     )

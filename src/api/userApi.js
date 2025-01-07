@@ -49,3 +49,11 @@ export const getUserDetail = async () => {
         return { status: err?.status, message: err?.response?.data?.message };
     }
 };
+
+export const deleteUser = async () => {
+    try {
+        return await axiosInstance.delete(`/delete_current_user/`);
+    } catch (err) {
+        return { status: err?.status, message: err?.response?.data?.message };
+    }
+};

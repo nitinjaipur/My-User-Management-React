@@ -20,5 +20,6 @@
   "age": "Age",
   "gender": "Gender",
   "logout": "Logout",
-  "alreadyAcountQuestion": "Already have an account?"
+  "alreadyAcountQuestion": "Already have an account?",
+  "deleteUser": "Delete User"
 }

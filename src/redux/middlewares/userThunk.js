@@ -1,4 +1,4 @@
-import { userRegister, userLogin, userLogout, getUserDetail } from '../../api/userApi';
+import { userRegister, userLogin, userLogout, getUserDetail, deleteUser } from '../../api/userApi';
 import { setUserReducer, logoutUserReducer } from '../reducers/userReducer';
 
 export const signupThunk = (data) => async (dispatch) => {
@@ -28,12 +28,21 @@ export const logoutThunk = () => async (dispatch) => {
   }
 };
 
-export const getUserDetailThunk = ({onSuccess=() => {}, onFail=() => {}}) => async (dispatch) => {
+export const getUserDetailThunk = () => async (dispatch) => {
   const response = await getUserDetail();
+  // if(response?.status == 200) {
+  //   onSuccess();
+  // }
+  // else {
+  //   onFail();
+  // }
+};
+
+export const deleteUserThunk = () => async (dispatch) => {
+  const response = await deleteUser();
   if(response?.status == 200) {
-    onSuccess();
-  }
-  else {
-    onFail();
+    localStorage.setItem('isAuthenticated', 'false');
+    dispatch(logoutUserReducer());
+    window.location.href = '/';
   }
 };

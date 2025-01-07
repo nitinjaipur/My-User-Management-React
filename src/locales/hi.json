@@ -20,6 +20,7 @@
     "age": "आयु",
     "gender": "लिंग",
     "logout": "लॉगआउट",
-    "alreadyAcountQuestion": "क्या आपके पास पहले से एक खाता है?"
+    "alreadyAcountQuestion": "क्या आपके पास पहले से एक खाता है?",
+    "deleteUser": "उपयोगकर्ता हटाएँ"
   }
   
