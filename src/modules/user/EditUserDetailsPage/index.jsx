@@ -55,7 +55,7 @@ const EditUserDetailsPage = () => {
     }, [state]);
 
     return(
-        <div className="flex flex-col bg-backgroundGray w-full h-full items-center py-8 gap-4">
+        <div className="flex flex-col bg-backgroundGray w-full h-full items-center py-8 gap-4 overflow-x-auto">
             <div className='flex w-full h-full'>
                 <div className='flex flex-col h-full w-1/2 justify-center items-center gap-8'>
                     { state.profileImage ? <SignupImageContainer image={state?.profileImage} onCancel={removeImage} /> : null }

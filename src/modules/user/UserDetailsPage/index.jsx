@@ -24,7 +24,7 @@ const UserDetailsPage = () => {
     const handleDeleteUser = () => dispatch(deleteUserThunk());
 
     return(
-        <div className="flex flex-col bg-backgroundGray w-full h-full items-center">
+        <div className="flex flex-col bg-backgroundGray w-full h-full items-center overflow-x-auto">
             <p className='text-2xl font-bold my-5'>{t('userDetailsPage')}</p>
             <div className='flex flex-col items-center'>
                 <img

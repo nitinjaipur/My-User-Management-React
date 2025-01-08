@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../../redux/middlewares/index';
 import { useTranslation } from 'react-i18next';
-import { useState, lazy } from "react";
+import { useState, lazy, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const InputBox = lazy(() => import('../../../components/InputBox'));
 const Button = lazy(() => import('../../../components/Button'));
@@ -11,6 +11,7 @@ const SignIn = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const [loginAllowed, setLoginAllowed] = useState(false);
     const [state, setState] = useState({});
     const resetState = () => setState({});
     const onStateChange = (e) => {
@@ -25,6 +26,15 @@ const SignIn = () => {
         }
     }
 
+    useEffect(() => {
+        if (state?.email?.length > 0 && state?.password?.length > 0) {
+            !loginAllowed && setLoginAllowed(true);
+        }
+        else {
+            loginAllowed && setLoginAllowed(false);
+        }
+    }, [state]);
+
     return(
         <div className="bg-mainGreen w-full h-[100vh] overflow-y-scroll flex flex-col p-6 items-center justify-center">
             <div className="bg-backgroundGray flex flex-col w-1/2 border-2 rounded-lg p-4 gap-4 items-center overflow-auto">
@@ -36,7 +46,7 @@ const SignIn = () => {
                 </div>
                 <div className="mt-4 flex w-[60%] justify-between">
                     <Button title={t('resetForm')} buttonColorClass={'bg-red-700'} onClickButton={resetState}/>
-                    <Button title={t('logIn')} buttonColorClass={'bg-slate-700'} onClickButton={handleLogin}/>
+                    <Button title={t('logIn')} allowed={loginAllowed} buttonColorClass={'bg-slate-700'} onClickButton={handleLogin}/>
                 </div>
                 <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
                 <LanguageDropdown />
