@@ -22,5 +22,6 @@
   "logout": "Logout",
   "alreadyAcountQuestion": "Already have an account?",
   "deleteUser": "Delete User",
-  "updateUser": "Update User"
+  "updateUser": "Update User",
+  "updateImage": "Update Image"
 }

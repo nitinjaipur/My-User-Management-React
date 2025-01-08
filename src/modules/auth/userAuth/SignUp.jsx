@@ -62,7 +62,7 @@ const SignUp = () => {
                     <InputBox label={t('email')} type="email" name={'email'} value={state.email} onValueChange={onStateChange}/>
                     <InputBox label={t('password')} type='password' name={'password'} value={state.password} onValueChange={onStateChange}/>
                     <InputBox label={t('age')} type="number" name={'age'} value={state.age} onValueChange={onStateChange}/>
-                    <DropDown label={'Gender'} name='gender' options={GENDERS} value={state.gender} onValueChange={onStateChange}/>
+                    <DropDown label={t('gender')} name='gender' options={GENDERS} value={state.gender} onValueChange={onStateChange}/>
                     <FileInputBox label={t('profileImage')} name={'image'} value={imageName} onValueChange={onImageChange}/>
                 </div>
                 { state.image ? <SignupImageContainer image={state?.image} onCancel={removeImage} /> : null }
