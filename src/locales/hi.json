@@ -21,6 +21,7 @@
     "gender": "लिंग",
     "logout": "लॉगआउट",
     "alreadyAcountQuestion": "क्या आपके पास पहले से एक खाता है?",
-    "deleteUser": "उपयोगकर्ता हटाएँ"
+    "deleteUser": "उपयोगकर्ता हटाएँ",
+    "updateUser": "उपयोगकर्ता अपडेट करें"
   }
   

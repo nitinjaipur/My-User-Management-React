@@ -21,5 +21,6 @@
   "gender": "Gender",
   "logout": "Logout",
   "alreadyAcountQuestion": "Already have an account?",
-  "deleteUser": "Delete User"
+  "deleteUser": "Delete User",
+  "updateUser": "Update User"
 }

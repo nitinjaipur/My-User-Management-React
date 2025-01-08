@@ -40,7 +40,7 @@ const UserDetailsPage = () => {
                     ))
                 }
                 <Button title={t('logout')} onClickButton={handleLogout} buttonClass={'bg-red-800 mt-2'}/>
-                <Button title={'Delete User'} onClickButton={handleDeleteUser} buttonClass={'bg-red-800 mt-2'}/>
+                <Button title={t('deleteUser')} onClickButton={handleDeleteUser} buttonClass={'bg-red-800 mt-2'}/>
             </div>
         </div>
     )
