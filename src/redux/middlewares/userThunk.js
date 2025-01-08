@@ -1,4 +1,4 @@
-import { userRegister, userLogin, userLogout, getUserDetail, deleteUser, updateUser } from '../../api/userApi';
+import { userRegister, userLogin, userLogout, getUserDetail, deleteUser, updateUser, updateUserImage } from '../../api/userApi';
 import { setUserReducer, logoutUserReducer } from '../reducers/userReducer';
 
 export const signupThunk = (data) => async (dispatch) => {
@@ -49,6 +49,14 @@ export const deleteUserThunk = () => async (dispatch) => {
 
 export const updateUserThunk = (data) => async (dispatch) => {
   const response = await updateUser(data);
+  if(response?.status == 200) {
+    dispatch(setUserReducer(response?.data?.data));
+    window.location.reload();
+  }
+};
+
+export const updateUserImageThunk = (data) => async (dispatch) => {
+  const response = await updateUserImage(data);
   if(response?.status == 200) {
     dispatch(setUserReducer(response?.data?.data));
     window.location.reload();

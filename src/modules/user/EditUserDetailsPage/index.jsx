@@ -2,7 +2,7 @@ import { GENDERS } from '../../../utils/data';
 import { lazy, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateUserThunk } from '../../../redux/middlewares/index';
+import { updateUserThunk, updateUserImageThunk } from '../../../redux/middlewares/index';
 const Button = lazy(() => import('../../../components/Button'));
 const InputBox = lazy(() => import('../../../components/InputBox'));
 const FileInputBox = lazy(() => import('../../../components/FileInputBox'));
@@ -44,6 +44,7 @@ const EditUserDetailsPage = () => {
     }
 
     const handleUpdateUser = () => dispatch(updateUserThunk(state));
+    const handleUpdateUserImage = () => dispatch(updateUserImageThunk(state.profileImage));
 
     useEffect(() => {
         let stateData = { name: state.name, email: state.email, age: String(state.age), gender: state.gender };
@@ -61,7 +62,7 @@ const EditUserDetailsPage = () => {
                 <div className='flex flex-col h-full w-1/2 justify-center items-center gap-8'>
                     { state.profileImage ? <SignupImageContainer image={state?.profileImage} onCancel={removeImage} /> : null }
                     <FileInputBox label={t('profileImage')} name={'image'} value={imageName} onValueChange={onImageChange}/>
-                    <Button title={t('updateImage')} allowed={allowed.image} onClickButton={() => {}} buttonColorClass={'bg-mainGreen'} buttonClass={'mt-2'}/>
+                    <Button title={t('updateImage')} allowed={allowed.image} onClickButton={handleUpdateUserImage} buttonColorClass={'bg-mainGreen'} buttonClass={'mt-2'}/>
                 </div>
                 <div className='flex flex-col w-full h-full items-center gap-4'>
                     <InputBox label={t('name')} name={'name'} value={state.name} onValueChange={onStateChange}/>

@@ -3,7 +3,8 @@ import {
     logoutThunk,
     getUserDetailThunk,
     deleteUserThunk,
-    updateUserThunk
+    updateUserThunk,
+    updateUserImageThunk
 } from './userThunk';
 
 const rootThunk = {
@@ -11,7 +12,8 @@ const rootThunk = {
     logoutThunk,
     getUserDetailThunk,
     deleteUserThunk,
-    updateUserThunk
+    updateUserThunk,
+    updateUserImageThunk
 };
 
 export {
@@ -19,7 +21,8 @@ export {
     logoutThunk,
     getUserDetailThunk,
     deleteUserThunk,
-    updateUserThunk
+    updateUserThunk,
+    updateUserImageThunk
 };
 
 export default rootThunk;

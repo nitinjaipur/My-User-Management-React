@@ -61,7 +61,7 @@ export const deleteUser = async () => {
 export const updateUser = async (data) => {    
     const { name, email, age, gender} = data;
     try {
-        return await axiosInstance.put(`/update_user/`,
+        return await axiosInstance.patch(`/update_user/`,
             {
                 name: name,
                 email: email,
@@ -69,6 +69,20 @@ export const updateUser = async (data) => {
                 gender: gender
             }
         );
+    } catch (err) {
+        return { status: err?.status, message: err?.response?.data?.message };
+    }
+};
+
+export const updateUserImage = async (data) => {
+    try {
+        const formData = new FormData();
+        formData.append('image', data);
+        return await axiosInstance.post(`/update_user_image/`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
     } catch (err) {
         return { status: err?.status, message: err?.response?.data?.message };
     }
