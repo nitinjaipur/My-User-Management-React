@@ -39,8 +39,8 @@ const UserDetailsPage = () => {
                         (key != 'id' && key != 'profileImg') && <FieldComponent label={t(`${key}`)} value={user[`${key}`]} />
                     ))
                 }
-                <Button title={t('logout')} onClickButton={handleLogout} buttonClass={'bg-red-800 mt-2'}/>
-                <Button title={t('deleteUser')} onClickButton={handleDeleteUser} buttonClass={'bg-red-800 mt-2'}/>
+                <Button title={t('logout')} onClickButton={handleLogout} buttonColorClass={'bg-red-800'} buttonClass={'mt-2'}/>
+                <Button title={t('deleteUser')} onClickButton={handleDeleteUser} buttonColorClass={'bg-red-800'} buttonClass={'mt-2'}/>
             </div>
         </div>
     )

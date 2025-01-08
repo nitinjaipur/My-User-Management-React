@@ -2,7 +2,6 @@ import { useEffect, useState, lazy } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { userSideBarData } from '../../routes/AppRoutes/sideBarData';
 const UserDetail = lazy(() => import('../UserDetail'));
-const Button = lazy(() => import('../Button'));
 
 const UserSideBar = ({childComponent}) => {
     const navigate = useNavigate();

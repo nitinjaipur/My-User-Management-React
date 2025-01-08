@@ -58,8 +58,8 @@ const SignUp = () => {
                 { state.image ? <SignupImageContainer image={state?.image} onCancel={removeImage} /> : null }
                 <p className="text-sm flex">{t('alreadyAcountQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/')}>{t('logIn')}</p>{t('nowLower')}</p>
                 <div className="mt-4 flex w-[60%] justify-between">
-                    <Button title={t('resetForm')} buttonClass={'bg-red-700'} onClickButton={resetState}/>
-                    <Button title={t('register')} onClickButton={onRegister} buttonClass={'bg-slate-700'}/>
+                    <Button title={t('resetForm')} buttonColorClass={'bg-red-700'} onClickButton={resetState}/>
+                    <Button title={t('register')} buttonColorClass={'bg-slate-700'} onClickButton={onRegister}/>
                 </div>
                 <LanguageDropdown />
             </div>

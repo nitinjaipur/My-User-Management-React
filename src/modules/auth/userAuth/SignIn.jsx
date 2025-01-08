@@ -35,8 +35,8 @@ const SignIn = () => {
                     <InputBox label={t('password')} type='password' name={'password'} value={state.password} onValueChange={onStateChange}/>
                 </div>
                 <div className="mt-4 flex w-[60%] justify-between">
-                    <Button title={t('resetForm')} buttonClass={'bg-red-700'} onClickButton={resetState}/>
-                    <Button title={t('logIn')} buttonClass={'bg-slate-700'} onClickButton={handleLogin}/>
+                    <Button title={t('resetForm')} buttonColorClass={'bg-red-700'} onClickButton={resetState}/>
+                    <Button title={t('logIn')} buttonColorClass={'bg-slate-700'} onClickButton={handleLogin}/>
                 </div>
                 <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
                 <LanguageDropdown />
