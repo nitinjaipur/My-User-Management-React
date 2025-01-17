@@ -1,13 +1,17 @@
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../../../redux/middlewares/index';
 import { useTranslation } from 'react-i18next';
-import { useState, lazy } from "react";
+import { useState, lazy, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const InputBox = lazy(() => import('../../../components/InputBox'));
 const Button = lazy(() => import('../../../components/Button'));
 const LanguageDropdown = lazy(() => import('../../../components/LanguageDropdown'));
 
 const SignIn = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const [loginAllowed, setLoginAllowed] = useState(false);
     const [state, setState] = useState({});
     const resetState = () => setState({});
     const onStateChange = (e) => {
@@ -15,6 +19,21 @@ const SignIn = () => {
         let value = e.target.value;
         setState(prev => ({...prev, [name]: value}));
     };
+
+    const handleLogin = () => {
+        if (state.email && state.password) {            
+            dispatch(loginThunk(state));
+        }
+    }
+
+    useEffect(() => {
+        if (state?.email?.length > 0 && state?.password?.length > 0) {
+            !loginAllowed && setLoginAllowed(true);
+        }
+        else {
+            loginAllowed && setLoginAllowed(false);
+        }
+    }, [state]);
 
     return(
         <div className="bg-mainGreen w-full h-[100vh] overflow-y-scroll flex flex-col p-6 items-center justify-center">
@@ -26,10 +45,10 @@ const SignIn = () => {
                     <InputBox label={t('password')} type='password' name={'password'} value={state.password} onValueChange={onStateChange}/>
                 </div>
                 <div className="mt-4 flex w-[60%] justify-between">
-                    <Button title={t('resetForm')} buttonClass={'bg-red-700'} onClickButton={resetState}/>
-                    <Button title={t('logIn')} buttonClass={'bg-slate-700'}/>
+                    <Button title={t('resetForm')} buttonColorClass={'bg-red-700'} onClickButton={resetState}/>
+                    <Button title={t('logIn')} allowed={loginAllowed} buttonColorClass={'bg-slate-700'} onClickButton={handleLogin}/>
                 </div>
-                <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
+                <p className="text-sm flex">{t('newHereQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/signup')}>{t('signUp')}</p>{t('nowLower')}</p>
                 <LanguageDropdown />
             </div>
         </div>

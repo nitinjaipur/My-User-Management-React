@@ -7,11 +7,11 @@ export const userSideBarData = [
     {
         id: 1,
         title: 'My Profile',
-        path: '/details'
+        path: '/user-details'
     },
-    // {
-    //     id: 2,
-    //     title: 'Settings',
-    //     path: '/'
-    // },
+    {
+        id: 2,
+        title: 'Edit Profile',
+        path: '/edit-user'
+    },
 ];

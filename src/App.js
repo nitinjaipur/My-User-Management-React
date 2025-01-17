@@ -1,5 +1,5 @@
 import { I18nextProvider } from 'react-i18next';
-import i18n from './i18n'; // import your i18n instance
+import i18n from './i18n';
 import { Suspense, lazy } from 'react';
 import './App.css';
 import {
@@ -11,8 +11,7 @@ import {
 } from "react-router-dom";
 const AuthRoutes = lazy(() => import('./routes/AuthRoutes'));
 const AppRoutes = lazy(() => import('./routes/AppRoutes'));
-// const AUTH = true;
-const AUTH = false;
+const AUTH = localStorage.getItem('isAuthenticated') || 'false';
 
 const Spinner = () => {
   return(
@@ -28,7 +27,7 @@ function App() {
           <Routes>
             <Route
               path='/*'
-              element={ AUTH ? <AppRoutes /> : <AuthRoutes />}
+              element={ AUTH == 'true' ? <AppRoutes /> : <AuthRoutes />}
             >
             </Route>
           </Routes>

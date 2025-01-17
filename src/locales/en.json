@@ -16,5 +16,12 @@
   "userDetailsPage": "User Details Page",
   "userHomePage": "User Home Page",
   "title": "Title",
-  "cost": "Cost"
+  "cost": "Cost",
+  "age": "Age",
+  "gender": "Gender",
+  "logout": "Logout",
+  "alreadyAcountQuestion": "Already have an account?",
+  "deleteUser": "Delete User",
+  "updateUser": "Update User",
+  "updateImage": "Update Image"
 }

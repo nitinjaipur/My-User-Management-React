@@ -16,6 +16,13 @@
     "userDetailsPage": "उपयोगकर्ता विवरण पृष्ठ",
     "userHomePage": "उपयोगकर्ता होम पृष्ठ",
     "title": "शीर्षक",
-    "cost": "मूल्य"
+    "cost": "मूल्य",
+    "age": "आयु",
+    "gender": "लिंग",
+    "logout": "लॉगआउट",
+    "alreadyAcountQuestion": "क्या आपके पास पहले से एक खाता है?",
+    "deleteUser": "उपयोगकर्ता हटाएँ",
+    "updateUser": "उपयोगकर्ता अपडेट करें",
+    "updateImage": "छवि अपडेट करें"
   }
   

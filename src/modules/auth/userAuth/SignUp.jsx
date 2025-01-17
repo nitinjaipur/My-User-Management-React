@@ -1,13 +1,21 @@
-import { useState, lazy } from "react";
+import { GENDERS } from '../../../utils/data';
+import { useDispatch } from 'react-redux';
+import { signupThunk } from '../../../redux/middlewares/userThunk';
+import { useState, lazy, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router-dom";
 const InputBox = lazy(() => import('../../../components/InputBox'));
 const FileInputBox = lazy(() => import('../../../components/FileInputBox'));
 const Button = lazy(() => import('../../../components/Button'));
 const SignupImageContainer = lazy(() => import('../../../components/SignupImageContainer'));
 const LanguageDropdown = lazy(() => import('../../../components/LanguageDropdown'));
+const DropDown = lazy(() => import('../../../components/DropDown'));
 
 const SignUp = () => {
-    const [state, setState] = useState({});
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const [signupAllowed, setSignupAllowed] = useState(false);
+    const [state, setState] = useState({gender: GENDERS[0]});
     const [imageName, setImageName] = useState('');
     const { t } = useTranslation(); 
 
@@ -34,6 +42,17 @@ const SignUp = () => {
         setState(prev => ({...prev, 'image': ''}));
     }
 
+    const onRegister = () => dispatch(signupThunk(state));
+
+    useEffect(() => {
+        if (state?.name?.length > 0 && state?.email?.length > 0 && state?.password?.length > 0 && state?.age?.length > 0) {
+            !signupAllowed && setSignupAllowed(true);
+        }
+        else {
+            signupAllowed && setSignupAllowed(false);
+        }
+    }, [state]);
+
     return(
         <div className="bg-mainGreen w-full h-[100vh] overflow-y-scroll flex flex-col p-6 items-center justify-center">
             <div className="bg-backgroundGray flex flex-col w-1/2 border-2 rounded-lg p-4 gap-4 items-center overflow-auto">
@@ -42,12 +61,15 @@ const SignUp = () => {
                     <InputBox label={t('name')} name={'name'} value={state.name} onValueChange={onStateChange}/>
                     <InputBox label={t('email')} type="email" name={'email'} value={state.email} onValueChange={onStateChange}/>
                     <InputBox label={t('password')} type='password' name={'password'} value={state.password} onValueChange={onStateChange}/>
+                    <InputBox label={t('age')} type="number" name={'age'} value={state.age} onValueChange={onStateChange}/>
+                    <DropDown label={t('gender')} name='gender' options={GENDERS} value={state.gender} onValueChange={onStateChange}/>
                     <FileInputBox label={t('profileImage')} name={'image'} value={imageName} onValueChange={onImageChange}/>
                 </div>
                 { state.image ? <SignupImageContainer image={state?.image} onCancel={removeImage} /> : null }
+                <p className="text-sm flex">{t('alreadyAcountQuestion')}<p className="font-semibold px-1 hover:cursor-pointer" onClick={() => navigate('/')}>{t('logIn')}</p>{t('nowLower')}</p>
                 <div className="mt-4 flex w-[60%] justify-between">
-                    <Button title={t('resetForm')} buttonClass={'bg-red-700'} onClickButton={resetState}/>
-                    <Button title={t('register')} buttonClass={'bg-slate-700'}/>
+                    <Button title={t('resetForm')} buttonColorClass={'bg-red-700'} onClickButton={resetState}/>
+                    <Button title={t('register')} allowed={signupAllowed} buttonColorClass={'bg-slate-700'} onClickButton={onRegister}/>
                 </div>
                 <LanguageDropdown />
             </div>

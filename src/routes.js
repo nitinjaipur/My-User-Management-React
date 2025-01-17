@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 const UserHomePage = lazy(() => import('./modules/user/UserHomePage'));
 const UserDetailsPage = lazy(() => import('./modules/user/UserDetailsPage'));
+const EditUserDetailsPage = lazy(() => import('./modules/user/EditUserDetailsPage'));
 const UserSignUp = lazy(() => import('./modules/auth/userAuth/SignUp'));
 const UserSignIn = lazy(() => import('./modules/auth/userAuth/SignIn'));
 
@@ -10,8 +11,12 @@ const USER_ROUTES = [
         component: UserHomePage
     },
     {
-        path: '/details',
+        path: '/user-details',
         component: UserDetailsPage
+    },
+    {
+        path: '/edit-user',
+        component: EditUserDetailsPage
     },
 ];
 

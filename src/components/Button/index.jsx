@@ -1,12 +1,15 @@
 const Button = ({
     title = 'Title',
-    buttonClass = `bg-mainGreen`,
-    onClickButton = () => {}
+    buttonColorClass = `bg-mainGreen`,
+    buttonColorDisabledClass = `bg-neutral-500`,
+    buttonClass = ``,
+    onClickButton = () => {},
+    allowed = true,
 }) => {
     const handleClickButton = () => onClickButton();
     return(
         <button
-            className={`${buttonClass} px-2 py-1 rounded-md`}
+            className={`${!allowed && 'hover:cursor-not-allowed'} ${allowed ? buttonColorClass : buttonColorDisabledClass} ${buttonClass} px-2 py-1 rounded-md`}
             onClick={handleClickButton}
         >
             <p className="text-white">{title}</p>

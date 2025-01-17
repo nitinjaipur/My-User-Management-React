@@ -5,6 +5,7 @@ const cardData = [1, 2, 3, 4, 5, 6, 7];
 
 const UserHomePage = () => {
     const { t } = useTranslation();
+
     return(
         <div className="bg-backgroundGray w-full h-full overflow-x-auto">
             <p>{t('userHomePage')}</p>
